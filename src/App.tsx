@@ -1,8 +1,14 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import jobData from '../public/fixtures/data.json';
+import formatJobJson from './utils';
+import FilterCardList from './components/FilterCardList';
 
 function App() {
-  return <div> Hello, world</div>;
+  return (
+    <div>
+      <FilterCardList jobData={formatJobJson(jobData)} />
+    </div>
+  );
 }
 
 export default App;
