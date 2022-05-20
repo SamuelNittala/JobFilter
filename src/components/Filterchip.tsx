@@ -14,9 +14,10 @@ const Button = styled.button`
 `;
 
 export default function Filterchip({ value }: PropsType) {
-  const { setFilters } = useFilters();
+  const { setFilters, setChange } = useFilters();
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setFilters((prev: Set<string>) => prev.add(e.currentTarget.innerText));
+    setChange((prev) => !prev);
   };
   return <Button onClick={handleClick}>{value}</Button>;
 }
