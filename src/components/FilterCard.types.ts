@@ -5,4 +5,5 @@ export type FilterCardPropsType = {
   jobLocation: string;
   companyName: string;
   extraFeatures?: Array<string>;
+  languages: Array<string>;
 };
