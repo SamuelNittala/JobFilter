@@ -7,20 +7,24 @@ const Wrapper = styled.div`
   width: 80%;
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   min-width: 375px;
-  padding: 4px;
   padding-left: 32px;
   border-radius: 10px;
   color: hsl(180, 29%, 50%);
   background-color: white;
   margin-bottom: 16px;
   cursor: pointer;
+  box-shadow: 10px 10px 19px -3px rgba(91, 164, 164, 0.75);
+  -webkit-box-shadow: 10px 10px 19px -3px rgba(91, 164, 164, 0.75);
+  -moz-box-shadow: 10px 10px 19px -3px rgba(91, 164, 164, 0.75);
 
-  & > div:nth-child(3) {
-    margin-top: -56px;
-    margin-left: auto;
-    width: fit-content;
+  & > img {
+    flex-direction: row;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
   }
 `;
 
@@ -34,14 +38,22 @@ const BottomWrapper = styled.div`
 `;
 
 const LanguageWrapper = styled.div`
-  display: inline-flex;
   background-color: white;
   flex-direction: row;
   padding: 10px;
-
+  margin-left: auto;
+  margin-top: 24px;
   & > p {
     margin-right: 8px;
   }
+`;
+
+const RowWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  margin-left: 10px;
+  margin-bottom: 0;
 `;
 
 export default function FilterCard({
@@ -51,23 +63,25 @@ export default function FilterCard({
   title,
   companyName,
   languages,
+  logo,
 }: FilterCardPropsType) {
   return (
     <Wrapper>
-      <div>
-        <h3>{companyName}</h3>
-      </div>
-      <h3>{title}</h3>
+      <img src={`.${logo}`} alt="company-logo" />
+      <RowWrapper>
+        <h3 style={{ fontSize: '16px', marginBottom: 0, marginTop: 40 }}>{companyName}</h3>
+        <h3 style={{ fontSize: '24px', marginBottom: 0, marginTop: 16 }}>{title}</h3>
+        <BottomWrapper>
+          <p>{jobLocation}</p>
+          <p>{jobType}</p>
+          <p>{timePassed}</p>
+        </BottomWrapper>
+      </RowWrapper>
       <LanguageWrapper>
         {languages.map((language) => (
           <Filterchip value={language} />
         ))}
       </LanguageWrapper>
-      <BottomWrapper>
-        <p>{jobLocation}</p>
-        <p>{jobType}</p>
-        <p>{timePassed}</p>
-      </BottomWrapper>
     </Wrapper>
   );
 }
