@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   flex-direction: row;
   background: violet;
   margin-top: 16px;
-  padding: 4px;
+  margin-bottom: -16px;
   padding-left: 10px;
   border-radius: 5px;
 
