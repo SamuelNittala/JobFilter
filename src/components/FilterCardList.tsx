@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import FilterCard from './FilterCard';
 import type { FilterCardPropsType } from './FilterCard.types';
 
@@ -6,9 +7,13 @@ type PropType = {
   jobData: Array<FilterCardPropsType>;
 };
 
+const Wrapper = styled.div`
+  margin-top: 16px;
+`;
+
 export default function FilterCardList({ jobData }: PropType) {
   return (
-    <li>
+    <Wrapper>
       {jobData.map((job) => {
         const { companyName, jobLocation, jobType, timePassed, title, extraFeatures, languages } =
           job;
@@ -24,6 +29,6 @@ export default function FilterCardList({ jobData }: PropType) {
           />
         );
       })}
-    </li>
+    </Wrapper>
   );
 }

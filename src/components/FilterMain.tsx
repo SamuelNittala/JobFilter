@@ -3,6 +3,7 @@ import jobData from '../../public/fixtures/data.json';
 import FilterCardList from './FilterCardList';
 import { useFilters } from '../context/FiltersContext';
 import { filterJobData, formatJobJson } from '../../src/utils';
+import Filters from './Filters';
 
 export default function FilterMain() {
   const { filters } = useFilters();
@@ -11,5 +12,10 @@ export default function FilterMain() {
   useEffect(() => {
     setJobListData(filterJobData(filters, jd));
   }, [filters.size]);
-  return <FilterCardList jobData={jobListData} />;
+  return (
+    <>
+      <Filters />
+      <FilterCardList jobData={jobListData} />
+    </>
+  );
 }
