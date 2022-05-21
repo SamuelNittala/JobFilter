@@ -8,7 +8,7 @@ type PropType = {
 };
 
 const Wrapper = styled.div`
-  margin-top: 16px;
+  margin-top: 56px;
 `;
 
 export default function FilterCardList({ jobData }: PropType) {

@@ -10,24 +10,32 @@ const Wrapper = styled.div`
   flex-direction: column;
   min-width: 375px;
   padding: 4px;
+  padding-left: 32px;
   border-radius: 10px;
-  background-color: gray;
+  color: hsl(180, 29%, 50%);
+  background-color: white;
   margin-bottom: 16px;
+  cursor: pointer;
+
+  & > div:nth-child(3) {
+    margin-top: -56px;
+    margin-left: auto;
+    width: fit-content;
+  }
 `;
 
 const BottomWrapper = styled.div`
   display: flex;
   flex-direction: row;
   padding: 4px;
-
   & > p {
     margin-right: 8px;
   }
 `;
 
 const LanguageWrapper = styled.div`
-  background-color: pink;
-  display: flex;
+  display: inline-flex;
+  background-color: white;
   flex-direction: row;
   padding: 10px;
 
@@ -50,16 +58,16 @@ export default function FilterCard({
         <h3>{companyName}</h3>
       </div>
       <h3>{title}</h3>
-      <BottomWrapper>
-        <p>{jobLocation}</p>
-        <p>{jobType}</p>
-        <p>{timePassed}</p>
-      </BottomWrapper>
       <LanguageWrapper>
         {languages.map((language) => (
           <Filterchip value={language} />
         ))}
       </LanguageWrapper>
+      <BottomWrapper>
+        <p>{jobLocation}</p>
+        <p>{jobType}</p>
+        <p>{timePassed}</p>
+      </BottomWrapper>
     </Wrapper>
   );
 }
