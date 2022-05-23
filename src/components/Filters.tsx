@@ -9,17 +9,20 @@ const Wrapper = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  background: violet;
+  background: white;
   margin-top: 16px;
   margin-bottom: -16px;
   padding-left: 10px;
   border-radius: 5px;
 
   & > p {
-    background-color: pink;
+    background-color: hsl(180, 31%, 95%);
+    color: hsl(180, 29%, 50%);
     cursor: pointer;
     margin-right: 16px;
     padding: 10px;
+    width: fit-content;
+    border-radius: 5px;
   }
 
   & > p:last-child {
