@@ -8,20 +8,29 @@ type PropType = {
 };
 
 const Wrapper = styled.div`
-  margin-top: 16px;
+  margin-top: 56px;
 `;
 
 export default function FilterCardList({ jobData }: PropType) {
   return (
     <Wrapper>
       {jobData.map((job) => {
-        const { companyName, jobLocation, jobType, timePassed, title, extraFeatures, languages } =
-          job;
+        const {
+          companyName,
+          jobLocation,
+          jobType,
+          timePassed,
+          title,
+          extraFeatures,
+          languages,
+          logo,
+        } = job;
         return (
           <FilterCard
             companyName={companyName}
             jobLocation={jobLocation}
             jobType={jobType}
+            logo={logo}
             timePassed={timePassed}
             title={title}
             extraFeatures={extraFeatures}

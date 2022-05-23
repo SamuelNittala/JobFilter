@@ -7,10 +7,20 @@ type PropsType = {
 };
 
 const Button = styled.button`
-  background-color: pink;
+  background-color: hsl(180, 31%, 95%);
+  cursor: pointer;
   padding: 10px;
   margin-right: 16px;
   border-radius: 4px;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 16px;
+  border: none;
+  color: hsl(180, 29%, 50%);
+
+  &:hover {
+    background-color: hsl(180, 29%, 50%);
+    color: white;
+  }
 `;
 
 export default function Filterchip({ value }: PropsType) {

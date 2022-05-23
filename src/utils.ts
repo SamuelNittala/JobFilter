@@ -14,6 +14,7 @@ const formatJobJson = (jsonData: any): Array<FilterCardPropsType> => {
       new: newType,
       featured,
       languages,
+      logo,
     } = job;
     return {
       title: position,
@@ -23,6 +24,7 @@ const formatJobJson = (jsonData: any): Array<FilterCardPropsType> => {
       companyName: company,
       extraFeatures: [newType && 'New', featured && 'Featured'],
       languages,
+      logo,
     };
   });
   return jobArray;
