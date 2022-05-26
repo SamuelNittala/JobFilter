@@ -95,7 +95,7 @@ export default function FilterCard({
   timePassed,
   title,
   companyName,
-  languages,
+  filters,
   extraFeatures,
   logo,
 }: FilterCardPropsType) {
@@ -123,8 +123,8 @@ export default function FilterCard({
         </BottomWrapper>
       </RowWrapper>
       <LanguageWrapper>
-        {languages.map((language) => (
-          <Filterchip value={language} />
+        {filters.map((filter) => (
+          <Filterchip value={filter} />
         ))}
       </LanguageWrapper>
     </Wrapper>

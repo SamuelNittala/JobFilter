@@ -6,7 +6,5 @@ export type FilterCardPropsType = {
   companyName: string;
   extraFeatures?: Array<string>;
   logo: string;
-  languages: Array<string>;
-  newType: boolean;
-  featured: boolean;
+  filters: Array<string>;
 };
