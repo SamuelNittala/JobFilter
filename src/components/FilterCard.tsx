@@ -1,5 +1,7 @@
+/* eslint-disable arrow-body-style */
 import React from 'react';
 import styled from 'styled-components';
+import { EXTRA } from '../utils';
 import type { FilterCardPropsType } from './FilterCard.types';
 import Filterchip from './Filterchip';
 
@@ -56,6 +58,37 @@ const RowWrapper = styled.div`
   margin-bottom: 0;
 `;
 
+const UpperWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  & > p {
+    margin-bottom: -2px;
+    margin-right: 16px;
+    margin-top: 40px;
+  }
+`;
+
+const TitleCard = styled.p`
+  font-weight: bold;
+  padding: 8px;
+`;
+
+const NewFilterCard = styled.p`
+  padding: 8px;
+  background-color: hsl(180, 29%, 50%);
+  color: white;
+  font-size: 17px;
+  border-radius: 16px;
+`;
+
+const FeatureFilterCard = styled.p`
+  background-color: black;
+  padding: 8px;
+  color: white;
+  font-size: 17px;
+  border-radius: 16px;
+`;
 export default function FilterCard({
   jobLocation,
   jobType,
@@ -63,13 +96,25 @@ export default function FilterCard({
   title,
   companyName,
   languages,
+  extraFeatures,
   logo,
 }: FilterCardPropsType) {
   return (
     <Wrapper>
       <img src={`.${logo}`} alt="company-logo" />
       <RowWrapper>
-        <h3 style={{ fontSize: '16px', marginBottom: 0, marginTop: 40 }}>{companyName}</h3>
+        <UpperWrapper>
+          <TitleCard>{companyName}</TitleCard>
+          {extraFeatures?.map((feature) => {
+            if (feature === EXTRA.NEW) {
+              return <NewFilterCard>{feature}</NewFilterCard>;
+            }
+            if (feature === EXTRA.FEATURED) {
+              return <FeatureFilterCard>{feature}</FeatureFilterCard>;
+            }
+            return null;
+          })}
+        </UpperWrapper>
         <h3 style={{ fontSize: '24px', marginBottom: 0, marginTop: 16 }}>{title}</h3>
         <BottomWrapper>
           <p>{jobLocation}</p>

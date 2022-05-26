@@ -3,6 +3,11 @@
 /* eslint-disable function-paren-newline */
 import type { FilterCardPropsType } from './components/FilterCard.types';
 
+const EXTRA = {
+  NEW: 'New',
+  FEATURED: 'Featured',
+};
+
 const formatJobJson = (jsonData: any): Array<FilterCardPropsType> => {
   const jobArray = jsonData.map((job: any) => {
     const {
@@ -22,7 +27,7 @@ const formatJobJson = (jsonData: any): Array<FilterCardPropsType> => {
       jobType: contract,
       jobLocation: location,
       companyName: company,
-      extraFeatures: [newType && 'New', featured && 'Featured'],
+      extraFeatures: [newType && EXTRA.NEW, featured && EXTRA.FEATURED],
       languages,
       logo,
     };
@@ -37,4 +42,4 @@ const filterJobData = (filters: Set<string>, jobData: Array<FilterCardPropsType>
   );
 };
 
-export { formatJobJson, filterJobData };
+export { formatJobJson, filterJobData, EXTRA };
