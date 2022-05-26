@@ -22,7 +22,7 @@ export default function FilterCardList({ jobData }: PropType) {
           timePassed,
           title,
           extraFeatures,
-          languages,
+          filters,
           logo,
         } = job;
         return (
@@ -34,7 +34,7 @@ export default function FilterCardList({ jobData }: PropType) {
             timePassed={timePassed}
             title={title}
             extraFeatures={extraFeatures}
-            languages={languages}
+            filters={filters}
           />
         );
       })}

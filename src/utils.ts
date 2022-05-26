@@ -19,6 +19,8 @@ const formatJobJson = (jsonData: any): Array<FilterCardPropsType> => {
       new: newType,
       featured,
       languages,
+      role,
+      level,
       logo,
     } = job;
     return {
@@ -28,7 +30,7 @@ const formatJobJson = (jsonData: any): Array<FilterCardPropsType> => {
       jobLocation: location,
       companyName: company,
       extraFeatures: [newType && EXTRA.NEW, featured && EXTRA.FEATURED],
-      languages,
+      filters: [...languages, role, level],
       logo,
     };
   });
@@ -38,7 +40,7 @@ const formatJobJson = (jsonData: any): Array<FilterCardPropsType> => {
 const filterJobData = (filters: Set<string>, jobData: Array<FilterCardPropsType>) => {
   if (filters.size === 0) return jobData;
   return jobData.filter((job: FilterCardPropsType) =>
-    job.languages.some((language: string) => filters.has(language)),
+    job.filters.some((language: string) => filters.has(language)),
   );
 };
 
