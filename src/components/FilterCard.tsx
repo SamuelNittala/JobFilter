@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   box-shadow: 10px 10px 19px -3px rgba(91, 164, 164, 0.75);
   -webkit-box-shadow: 10px 10px 19px -3px rgba(91, 164, 164, 0.75);
   -moz-box-shadow: 10px 10px 19px -3px rgba(91, 164, 164, 0.75);
-
+  border-left: ${(props) => props.className === 'show-border' && '7px solid hsl(180, 29%, 50%)'};
   & > img {
     flex-direction: row;
     width: 80px;
@@ -100,7 +100,7 @@ export default function FilterCard({
   logo,
 }: FilterCardPropsType) {
   return (
-    <Wrapper>
+    <Wrapper className={!!extraFeatures && extraFeatures?.length > 0 ? 'show-border' : 'no-border'}>
       <img src={`.${logo}`} alt="company-logo" />
       <RowWrapper>
         <UpperWrapper>

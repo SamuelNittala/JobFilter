@@ -29,7 +29,7 @@ const formatJobJson = (jsonData: any): Array<FilterCardPropsType> => {
       jobType: contract,
       jobLocation: location,
       companyName: company,
-      extraFeatures: [newType && EXTRA.NEW, featured && EXTRA.FEATURED],
+      extraFeatures: [newType && EXTRA.NEW, featured && EXTRA.FEATURED].filter(Boolean),
       filters: [...languages, role, level],
       logo,
     };
