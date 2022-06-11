@@ -8,5 +8,3 @@ export type FilterCardPropsType = {
   logo: string;
   filters: Array<string>;
 };
-
-export type GetNameType = Omit<FilterCardPropsType, 'title'>;
